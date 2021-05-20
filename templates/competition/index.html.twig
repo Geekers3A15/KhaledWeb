@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompetitionController!{% endblock %}
+
+{% block body %}
+    <div class="service-area ">
+        <div class="container">
+            <div class="row">
+
+                {% for competitions in competitions %}
+                <div class="col-lg-4">
+                    <div class="singl-services text-center mb-60">
+                        <div class="top-caption">
+                            <h4>{{ competitions.nom }}</h4>
+                        </div>
+                        <div class="services-img">
+                            <img href="" src="{{ asset('assets/img/service/service1.png')}}" alt="">
+                            <div class="back-flower">
+                             <img src="{{ asset('assets/img/service/services_flower1.png')}}" alt="">
+                            </div>
+                        </div>
+                        <div class="bottom-caption">
+                            <span>{{ competitions.dateDeb|date("m/d/Y") }}-{{ competitions.dateFin|date("m/d/Y") }}</span>
+                            <p>{{ competitions.theme }}</p>
+                        </div>
+                        <a href="{{ path('addparti') }}" class="btn">Participer</a>
+                    </div>
+                </div>
+            {%  endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

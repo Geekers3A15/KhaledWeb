@@ -1,0 +1,64 @@
+{% extends 'baseB.html.twig' %}
+
+{% block title %}Hello ParticipationController!{% endblock %}
+
+{% block body %}
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Table des Participation</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    {# <a href="{{ path('produit_add') }}"  class="btn btn-success" >Ajouter un nouveau produit !</a> #}
+                                </div>
+
+                            </div>
+
+
+
+
+                            </form>
+                            {% if participations %}
+                            <div class="card-body table-responsive p-0">
+                                <table id="#example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>id </th>
+                                        <th>Description</th>
+                                        <th>
+                                            <a href="{{ path('displaypdf')}}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i> Imprimer pdf</a>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for participations in participations %}
+                                        <tr>
+                                            <td>{{ participations.id }}</td>
+                                            <td>{{ participations.description }}</td>
+
+
+
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                    <p>Aucun produit n'a été trouvé</p>
+                                {% endif %}
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'baseB.html.twig' %}
+
+
+{% block body %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Table des competitions</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    {# <a href="{{ path('produit_add') }}"  class="btn btn-success" >Ajouter un nouveau produit !</a> #}
+                                </div>
+
+                            </div>
+
+
+
+
+                            </form>
+                            {% if competitions %}
+                            <div class="card-body table-responsive p-0">
+                                <table id="#example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>theme</th>
+                                        <th>Date début</th>
+                                        <th>Date fin</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for competitions in competitions %}
+                                        <tr>
+                                            <td>{{ competitions.id }}</td>
+                                            <td>{{ competitions.nom }}</td>
+                                            <td>{{ competitions.theme }}</td>
+                                            <td>{{ competitions.dateDeb|date("m/d/Y") }}</td>
+                                            <td>{{ competitions.dateFin|date("m/d/Y") }}</td>
+                                            <td align="center">
+                                                <a href="{{ path('editC',{'id':competitions.id }) }}" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i> Modifier</a>
+                                                <a href="{{ path('deleteC',{'id':competitions.Id }) }}" class="btn btn-danger" onclick="return confirm('Voulez vous vraiment supprimer cet competition ?')"> <i class="fas fa-trash"></i> Supprimer</a>
+
+                                            </td>
+
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                    <p>Aucun produit n'a été trouvé</p>
+                                {% endif %}
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

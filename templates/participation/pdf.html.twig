@@ -1,0 +1,32 @@
+
+
+
+                            {% if participations %}
+                            <div class="card-body table-responsive p-0">
+                                <table id="#example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>id </th>
+                                        <th>Description</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for participations in participations %}
+                                        <tr>
+                                            <td>{{ participations.id }}</td>
+                                            <td>{{ participations.description }}</td>
+
+
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                    <p>Aucun produit n'a été trouvé</p>
+                                {% endif %}
+                                <br>
+
+                            </div>
+
